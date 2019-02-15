@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.271
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FloatingBar", "FloatingBar.csproj", "{CBABC833-2012-4BDB-8385-09B3477F48A6}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "_Info", "_Info", "{FFA8F76D-E0B1-4168-BC09-AB868D05D862}"
+	ProjectSection(SolutionItems) = preProject
+		..\LICENSE = ..\LICENSE
+		..\README.md = ..\README.md
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FloatingBar.Tests", "..\FloatingBar.Tests\FloatingBar.Tests.csproj", "{64A2A65D-D1EF-48DE-B876-45D54ED40EA4}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CBABC833-2012-4BDB-8385-09B3477F48A6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CBABC833-2012-4BDB-8385-09B3477F48A6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CBABC833-2012-4BDB-8385-09B3477F48A6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CBABC833-2012-4BDB-8385-09B3477F48A6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{64A2A65D-D1EF-48DE-B876-45D54ED40EA4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{64A2A65D-D1EF-48DE-B876-45D54ED40EA4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{64A2A65D-D1EF-48DE-B876-45D54ED40EA4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{64A2A65D-D1EF-48DE-B876-45D54ED40EA4}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {41B7DE1A-6725-46A9-A59C-B84B10CE9427}
+	EndGlobalSection
+EndGlobal
