@@ -8,7 +8,7 @@ namespace FloatingBar.Tests
     {
         [Test]
         public void can_round_trip_a_rational_float () {
-            var original = -1430070.00916395;//500.125;
+            var original = 500.125;
 
             var subject = Rational32.FromFloat(original);
             Console.WriteLine("Ended up with " + subject);

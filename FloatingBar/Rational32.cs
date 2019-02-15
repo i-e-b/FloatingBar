@@ -36,8 +36,6 @@ namespace FloatingBar
         /// </summary>
         internal Rational32(bool isNegative, UInt32 numerator, UInt32 denominator)
         {
-            Console.WriteLine($"Attempting to express {numerator}/{denominator}");
-
             var len = 32 - LeadingZeros(denominator) - 1;
             var dfield = (1 << len) - 1;
 
@@ -185,15 +183,21 @@ namespace FloatingBar
 
             if (sign) { num = -num; }
 
-            // find a way to approximate better?
+            // Try to find an exact result
             var gcd = GCD(num, den);
             num /= gcd;
             den /= gcd;
             
+            // Reduce precision until it fits
             while (num > MaxInt || WouldOverflow((uint)num, (uint)den)) {
-                gcd = GCD(num, den) + 1;
+                gcd = GCD(num, den);
+                if (gcd == 1) gcd++;
                 num /= gcd;
                 den /= gcd;
+                if (den < 1) {
+                    den = 1;
+                    break;
+                }
             }
 
             return new Rational32(sign, (uint)num, (uint)den);
@@ -237,29 +241,11 @@ namespace FloatingBar
             var frac = f - num;
 
             if (Math.Abs(frac) < Sigma) return new Rational32(sign, (uint)num, 1); // close enough to an integer
-            
-            var den = (long)(1 / frac);
-            var gcd = GCD(num, den);
-            num /= gcd;
-            den /= gcd;
-            
-            while (WouldOverflow((uint)num, (uint)den)) {
-                num /= 2;
-                den /= 2;
-                gcd = GCD(num, den);
-                num /= gcd;
-                den /= gcd;
-            }
 
             var top = new Rational32(sign, (uint)num, 1);
-            var inv = new Rational32(sign, 1, (uint)(1 / frac));
+            var inv = new Rational32(sign, 1, (uint)(1/frac));
 
-            var cA = top.ToFloat();
-            var cB = inv.ToFloat();
-            var cR = cA + cB;
-            Console.WriteLine("Float add is ~ " + cR);
-
-            return new Rational32(sign, (uint)num, (uint)den);
+            return Add(top, inv);
         }
     }
 }
