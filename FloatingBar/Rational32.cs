@@ -191,9 +191,13 @@ namespace FloatingBar
             // Reduce precision until it fits
             while (num > MaxInt || WouldOverflow((uint)num, (uint)den)) {
                 gcd = GCD(num, den);
-                if (gcd == 1) gcd++;
-                num /= gcd;
-                den /= gcd;
+                if (gcd == 1) {
+                    num /= 2;
+                    den /= 2;
+                } else {
+                    num /= gcd;
+                    den /= gcd;
+                }
                 if (den < 1) {
                     den = 1;
                     break;

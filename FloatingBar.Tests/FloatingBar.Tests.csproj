@@ -50,6 +50,7 @@
     <Compile Include="ConversionTests.cs" />
     <Compile Include="FuzzingTests.cs" />
     <Compile Include="OperationTests.cs" />
+    <Compile Include="OtherTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
